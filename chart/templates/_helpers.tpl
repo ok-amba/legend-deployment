@@ -14,7 +14,6 @@ chart-version: {{ .Chart.Version | quote }}
 {{- define "deployment.dataDogAnnotations" -}}
 {{- if .Values.deployment.dataDog.enableLogs }}
 ad.datadoghq.com/{{ include "deployment.name" $ }}.logs: '[{"source": "{{ include "deployment.name" $ }}", "service": "{{ include "deployment.name" $ }}"}]'
-tags.datadoghq.com/env: {{ .Values.global.environment | quote }}
 {{- end -}}
 {{- end -}}
 
